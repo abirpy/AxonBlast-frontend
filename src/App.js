@@ -2,8 +2,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Question from './components/Question'
 import Results from './components/Results';
+
+import GamesBtn from './components/GamesBtn';
+import Links from './components/Links';
+import FlashCardsBtn from './components/FlashCardsBtn';
+import FlashCards from './components/FlashCards';
 import HomePage from './components/HomePage';
 import Header from './components/Header';
+
 
 function App() {
   const [questions, setQuestions] = useState([
@@ -57,6 +63,10 @@ function App() {
 
           <Route path='/' exact element={
             <>
+
+              <QuizButton totalQuestions={totalQuestions} questionNum={1} text={"Take Quiz"}/>
+              <GamesBtn text={"Games"}/>
+              <FlashCardsBtn text={"Flash Cards"}/>
               <Header />
               <HomePage totalQuestions={totalQuestions} />
             </>
@@ -67,6 +77,9 @@ function App() {
           ))}
 
           <Route path='/results' element={<Results answers={answers} />} />
+          <Route path='/games' element={<Links/>}/>
+          <Route path='/Flashcards' element={<FlashCards variant={'Primary'}/>}/>
+          
 
         </Routes>
 
