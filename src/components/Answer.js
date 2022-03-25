@@ -12,7 +12,7 @@ const Answer = ({ totalQuestions, question, addAnswer }) => {
   return (
     <form>
       <div>
-        <label className='answer'>Answer</label>
+        <label className='answer'></label>
         <input 
           className='answer'
           type='text'
@@ -21,7 +21,7 @@ const Answer = ({ totalQuestions, question, addAnswer }) => {
           onChange={(e) => setInput(e.target.value)}
         />
       </div>
-      <QuizButton clearInput={clearInput} totalQuestions={totalQuestions} questionNum={question.id+1} text={'Next Question'} />
+      <QuizButton style={"btn-quizPage"} clearInput={clearInput} totalQuestions={totalQuestions} questionNum={question.id+1} text={'Next Question'} />
     </form>
   )
 }

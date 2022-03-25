@@ -1,10 +1,9 @@
-import './App.css';
-import logo from './ab_logo.png';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Question from './components/Question'
-import QuizButton from './components/QuizButton'
 import Results from './components/Results';
+import HomePage from './components/HomePage';
+import Header from './components/Header';
 
 function App() {
   const [questions, setQuestions] = useState([
@@ -54,14 +53,13 @@ function App() {
     <Router>
       <div className="container">
 
-        <header className="header rounded-corners">
-          <img src={logo} />
-        </header>
-
         <Routes>
 
           <Route path='/' exact element={
-            <QuizButton totalQuestions={totalQuestions} questionNum={1} text={"Take Quiz"} />
+            <>
+              <Header />
+              <HomePage totalQuestions={totalQuestions} />
+            </>
           } />
 
           {questions.map((question) => (
