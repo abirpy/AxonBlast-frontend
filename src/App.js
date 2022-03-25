@@ -52,9 +52,9 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div className="container">
 
-        <header>
+        <header className="header rounded-corners">
           <img src={logo} />
         </header>
 
