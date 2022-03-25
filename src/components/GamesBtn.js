@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom'
-import Links from './Links'
 
-const GamesBtn = ({ style, text }) => {
+const GamesBtn = ({ css, text }) => {
   return (
     <div>
         <Link to = {'/games'}>
-            <button className={`btn ${style}`}>{text}</button>
+            <button className={`btn ${css}`}>{text}</button>
         </Link>
     </div>
   )
