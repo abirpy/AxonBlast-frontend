@@ -5,6 +5,10 @@ import { useState, useEffect } from 'react'
 import Question from './components/Question'
 import QuizButton from './components/QuizButton'
 import Results from './components/Results';
+import GamesBtn from './components/GamesBtn';
+import Links from './components/Links';
+import FlashCardsBtn from './components/FlashCardsBtn';
+import FlashCards from './components/FlashCards';
 
 function App() {
   const [questions, setQuestions] = useState([
@@ -61,14 +65,21 @@ function App() {
         <Routes>
 
           <Route path='/' exact element={
-            <QuizButton totalQuestions={totalQuestions} questionNum={1} text={"Take Quiz"} />
-          } />
+            <>
+              <QuizButton totalQuestions={totalQuestions} questionNum={1} text={"Take Quiz"}/>
+              <GamesBtn text={"Games"}/>
+              <FlashCardsBtn text={"Flash Cards"}/>
+            </>
+          } />  
 
           {questions.map((question) => (
             <Route key='question.id' path={`/q${question.id}`} element={<Question totalQuestions={totalQuestions} question={question} addAnswer={addAnswer} />} />
           ))}
 
           <Route path='/results' element={<Results answers={answers} />} />
+          <Route path='/games' element={<Links/>}/>
+          <Route path='/Flashcards' element={<FlashCards variant={'Primary'}/>}/>
+          
 
         </Routes>
 
