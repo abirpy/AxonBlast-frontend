@@ -1,7 +1,7 @@
 import QuizButton from "../QuizPage/QuizButton"
-import GamesBtn from "../GamesBtn"
-import FlashCardsBtn from "../FlashCardsBtn"
 import ProgressBtn from "../ProgressPage/ProgressBtn"
+import GamesBtn from "./Games/GamesBtn"
+import FlashCardsBtn from "./Flashcards/FlashCardsBtn"
 
 const HomeBtns = ({ totalQuestions }) => {
   return (

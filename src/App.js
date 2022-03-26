@@ -73,6 +73,36 @@ function App() {
       }
     })
     setScore(newScore)
+ const flashCards = [
+    {
+      id: 1,
+      text: "My Son's name is Jason"
+    },
+    {
+      id : 2,
+      text: "Joe Biden is the current president of America"
+    },
+    {
+      id: 3,
+      text: "I am from Los Angeles"
+    }
+  ]
+
+  const [flashcard, setFlashcard] = useState(
+      {
+        id: 1,
+        text: 'One'
+      }
+  )
+
+  const handleChange = (id) => {
+    let newFlashCard;
+    flashCards.forEach((f) => {
+      if(f.id === id){
+        newFlashCard = f;
+      }
+    });
+    setFlashcard(newFlashCard);
   }
 
   return (
@@ -93,13 +123,13 @@ function App() {
 
           <Route path='/results' element={<Results answers={answers} updateScore={updateScore} score={score} />} />
           <Route path='/games' element={<Links/>}/>
-          <Route path='/Flashcards' element={<FlashCards variant={'Primary'}/>}/>
+          <Route path='/Flashcards' element={<FlashCards text = {flashcard.text} variant='Primary' handleChange={handleChange}/>}/>
           <Route path='/progress' element={<ProgressBtn />}/>
 
         </Routes>
       </div>
     </Router>
   );
-}
+}}
 
-export default App;
+export default App
