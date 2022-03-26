@@ -1,12 +1,11 @@
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
-const FlashCards = ({text, variant, handleChange}) => {
+const FlashCards = ({text, handleChange}) => {
   console.log(text)
   return (
     <div className="center">
       <Card
-        bg={variant.toLowerCase()}
         style={{ width: '18rem' }}
         className="mb-2"
       >

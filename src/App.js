@@ -115,9 +115,8 @@ function App() {
 
           <Route path='/results' element={<Results answers={answers} updateScore={updateScore} score={score} />} />
           <Route path='/games' element={<Links/>}/>
-          <Route path='/Flashcards' element={<FlashCards text = {flashcard.text} variant='Primary' handleChange={handleChange}/>}/>
-          <Route path='/Flashcards' element={<FlashCards variant={'Primary'}/>}/>
-          <Route path='/progress' element={<ProgressBtn />}/>
+          <Route path='/Flashcards' element={<FlashCards text = {flashcard.text} handleChange={handleChange}/>}/>
+          <Route path='/progress' element={<progress />}/>
 
 
         </Routes>
