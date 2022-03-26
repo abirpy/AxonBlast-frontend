@@ -7,8 +7,9 @@ import Links from './components/Games/Links';
 import FlashCards from './components/Flashcards/FlashCards';
 import HomeBtns from './components/HomePage/HomeBtns';
 import Header from './components/HomePage/Header';
-import ProgressBtn from './components/ProgressPage/ProgressBtn';
-
+import ProgressBar from './components/ProgressPage/ProgressBar';
+import Settings from './components/SettingsPage/Settings';
+import Profile from './components/ProfilePage/Profile';
 
 function App() {
   const [questions, setQuestions] = useState([
@@ -115,8 +116,10 @@ function App() {
 
           <Route path='/results' element={<Results answers={answers} updateScore={updateScore} score={score} />} />
           <Route path='/games' element={<Links/>}/>
-          <Route path='/Flashcards' element={<FlashCards text = {flashcard.text} variant='Primary' handleChange={handleChange}/>}/>
-          <Route path='/progress' element={<ProgressBtn />}/>
+          <Route path='/Flashcards' element={<FlashCards text = {flashcard.text} handleChange={handleChange}/>}/>
+          <Route path='/progress' element={<ProgressBar />}/>
+          <Route path='/settings' element={<Settings />}/>
+          <Route path='/profile' element={<Profile />}/>
 
         </Routes>
       </div>
