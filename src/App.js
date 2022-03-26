@@ -104,13 +104,10 @@ function App() {
 
           <Route path='/results' element={<Results answers={answers} />} />
           <Route path='/games' element={<Links/>}/>
-<<<<<<< HEAD
           <Route path='/Flashcards' element={<FlashCards text = {flashcard.text} variant='Primary' handleChange={handleChange}/>}/>
-          
-=======
           <Route path='/Flashcards' element={<FlashCards variant={'Primary'}/>}/>
           <Route path='/progress' element={<ProgressBtn />}/>
->>>>>>> 5cc03707a5f558d2b710d5be70b8c6ff36b5c744
+
 
         </Routes>
       </div>

@@ -1,13 +1,8 @@
 import QuizButton from "./QuizButton"
-<<<<<<< HEAD
 import SomeBtn from "./SomeBtn"
 import GamesBtn from "./Games/GamesBtn"
 import FlashCardsBtn from "./Flashcards/FlashCardsBtn"
-=======
-import GamesBtn from "./GamesBtn"
-import FlashCardsBtn from "./FlashCardsBtn"
 import ProgressBtn from "./ProgressBtn"
->>>>>>> 5cc03707a5f558d2b710d5be70b8c6ff36b5c744
 
 const HomePage = ({ totalQuestions }) => {
   return (
