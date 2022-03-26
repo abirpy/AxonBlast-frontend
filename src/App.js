@@ -7,6 +7,7 @@ import Links from './components/Games/Links';
 import FlashCards from './components/Flashcards/FlashCards';
 import HomePage from './components/HomePage';
 import Header from './components/Header';
+import ProgressBtn from './components/ProgressBtn';
 
 
 function App() {
@@ -88,7 +89,6 @@ function App() {
   return (
     <Router>
       <div className="container">
-
         <Routes>
 
           <Route path='/' exact element={
@@ -104,11 +104,15 @@ function App() {
 
           <Route path='/results' element={<Results answers={answers} />} />
           <Route path='/games' element={<Links/>}/>
+<<<<<<< HEAD
           <Route path='/Flashcards' element={<FlashCards text = {flashcard.text} variant='Primary' handleChange={handleChange}/>}/>
           
+=======
+          <Route path='/Flashcards' element={<FlashCards variant={'Primary'}/>}/>
+          <Route path='/progress' element={<ProgressBtn />}/>
+>>>>>>> 5cc03707a5f558d2b710d5be70b8c6ff36b5c744
 
         </Routes>
-
       </div>
     </Router>
   );

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
 
-const HomeBtn = ({ style }) => {
+const HomeBtn = ({ css }) => {
   return (
     <div>
       <Link to='/'>
-        <button className={`btn ${style}`}>Home</button>
+        <button className={`btn ${css}`}>Home</button>
       </Link>
     </div>
   )

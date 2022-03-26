@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom'
-import Card from 'react-bootstrap/Card'
 
-const FlashCardsBtn = ({style, text }) => {
+const FlashCardsBtn = ({css, text }) => {
   return (
     <div>
       <Link to = {'/Flashcards'}>
-        <button className={`btn ${style}`}>{text}</button>
+        <button className={`btn ${css}`}>{text}</button>
       </Link>
     </div>
   )
