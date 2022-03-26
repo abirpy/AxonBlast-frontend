@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import Question from './components/Question'
-import Results from './components/Results';
+import Question from './components/QuizPage/Question'
+import Results from './components/ResultsPage/Results';
 
 import Links from './components/Games/Links';
 import FlashCards from './components/Flashcards/FlashCards';
-import HomePage from './components/HomePage';
-import Header from './components/Header';
-import ProgressBtn from './components/ProgressBtn';
+import HomeBtns from './components/HomePage/HomeBtns';
+import Header from './components/HomePage/Header';
+import ProgressBtn from './components/ProgressPage/ProgressBtn';
 
 
 function App() {
@@ -25,8 +25,6 @@ function App() {
       "text": "What is the name for the American Unit of currency?"
     }
   ])
-
-  const totalQuestions = questions.length
 
   const [answers, setAnswers] = useState([
     {
@@ -46,12 +44,25 @@ function App() {
     }
   ])
 
+  const [score, setScore] = useState(0);
+
   const addAnswer = (id, ans) => {
     setAnswers(
       answers.map((answer) => 
         answer.id === id ? { ...answer, input: ans } : answer
       )
     )
+  }
+
+  const updateScore = () => {
+    let newScore = 0
+    answers.forEach((answer) => {
+      console.log(answer.key === answer.input)
+      if (answer.key === answer.input) {
+          newScore++
+      }
+    })
+    setScore(newScore)
   }
 
  const flashCards = [
@@ -94,15 +105,15 @@ function App() {
           <Route path='/' exact element={
             <>
               <Header />
-              <HomePage totalQuestions={totalQuestions} />
+              <HomeBtns totalQuestions={questions.length} />
             </>
           } />
 
           {questions.map((question) => (
-            <Route key='question.id' path={`/q${question.id}`} element={<Question totalQuestions={totalQuestions} question={question} addAnswer={addAnswer} />} />
+            <Route key='question.id' path={`/q${question.id}`} element={<Question totalQuestions={questions.length} question={question} addAnswer={addAnswer} />} />
           ))}
 
-          <Route path='/results' element={<Results answers={answers} />} />
+          <Route path='/results' element={<Results answers={answers} updateScore={updateScore} score={score} />} />
           <Route path='/games' element={<Links/>}/>
           <Route path='/Flashcards' element={<FlashCards text = {flashcard.text} variant='Primary' handleChange={handleChange}/>}/>
           <Route path='/Flashcards' element={<FlashCards variant={'Primary'}/>}/>
@@ -115,22 +126,4 @@ function App() {
   );
 }
 
-export default App;
-
-
-/*
-<header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-*/
+export default App

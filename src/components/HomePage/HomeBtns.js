@@ -1,10 +1,17 @@
+<<<<<<< HEAD:src/components/HomePage.js
 import QuizButton from "./QuizButton"
 import SomeBtn from "./SomeBtn"
 import GamesBtn from "./Games/GamesBtn"
 import FlashCardsBtn from "./Flashcards/FlashCardsBtn"
 import ProgressBtn from "./ProgressBtn"
+=======
+import QuizButton from "../QuizPage/QuizButton"
+import ProgressBtn from "../ProgressPage/ProgressBtn"
+import GamesBtn from "../Games/GamesBtn"
+import FlashCardsBtn from "../Flashcards/FlashCardsBtn"
+>>>>>>> 67c0fb10d77f297ca56e01d38dca87bdcc0689f6:src/components/HomePage/HomeBtns.js
 
-const HomePage = ({ totalQuestions }) => {
+const HomeBtns = ({ totalQuestions }) => {
   return (
     <div>
       <div className="inline">
@@ -19,4 +26,4 @@ const HomePage = ({ totalQuestions }) => {
   )
 }
 
-export default HomePage
+export default HomeBtns
