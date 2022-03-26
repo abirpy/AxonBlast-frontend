@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react'
 import Question from './components/Question'
 import Results from './components/Results';
 
-import Links from './components/Links';
-import FlashCards from './components/FlashCards';
+import Links from './components/Games/Links';
+import FlashCards from './components/Flashcards/FlashCards';
 import HomePage from './components/HomePage';
 import Header from './components/Header';
 
@@ -53,6 +53,38 @@ function App() {
     )
   }
 
+ const flashCards = [
+    {
+      id: 1,
+      text: "My Son's name is Jason"
+    },
+    {
+      id : 2,
+      text: "Joe Biden is the current president of America"
+    },
+    {
+      id: 3,
+      text: "I am from Los Angeles"
+    }
+  ]
+
+  const [flashcard, setFlashcard] = useState(
+      {
+        id: 1,
+        text: 'One'
+      }
+  )
+
+  const handleChange = (id) => {
+    let newFlashCard;
+    flashCards.forEach((f) => {
+      if(f.id === id){
+        newFlashCard = f;
+      }
+    });
+    setFlashcard(newFlashCard);
+  }
+
   return (
     <Router>
       <div className="container">
@@ -72,7 +104,7 @@ function App() {
 
           <Route path='/results' element={<Results answers={answers} />} />
           <Route path='/games' element={<Links/>}/>
-          <Route path='/Flashcards' element={<FlashCards variant={'Primary'}/>}/>
+          <Route path='/Flashcards' element={<FlashCards text = {flashcard.text} variant='Primary' handleChange={handleChange}/>}/>
           
 
         </Routes>
