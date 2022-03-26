@@ -1,9 +1,9 @@
-import QuizButton from "./QuizButton"
-import GamesBtn from "./GamesBtn"
-import FlashCardsBtn from "./FlashCardsBtn"
-import ProgressBtn from "./ProgressBtn"
+import QuizButton from "../QuizPage/QuizButton"
+import GamesBtn from "../GamesBtn"
+import FlashCardsBtn from "../FlashCardsBtn"
+import ProgressBtn from "../ProgressPage/ProgressBtn"
 
-const HomePage = ({ totalQuestions }) => {
+const HomeBtns = ({ totalQuestions }) => {
   return (
     <div>
       <div className="inline">
@@ -18,4 +18,4 @@ const HomePage = ({ totalQuestions }) => {
   )
 }
 
-export default HomePage
+export default HomeBtns

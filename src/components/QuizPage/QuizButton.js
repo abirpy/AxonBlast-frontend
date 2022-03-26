@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 const QuizButton = ({ css, clearInput, totalQuestions, questionNum, text }) => {
+
   return (
     <div>
       <Link to={questionNum<=totalQuestions ? `/q${questionNum}` : '/results'}>

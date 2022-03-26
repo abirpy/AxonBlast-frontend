@@ -21,7 +21,7 @@ const Answer = ({ totalQuestions, question, addAnswer }) => {
           onChange={(e) => setInput(e.target.value)}
         />
       </div>
-      <QuizButton style={"btn-quizPage"} clearInput={clearInput} totalQuestions={totalQuestions} questionNum={question.id+1} text={'Next Question'} />
+      <QuizButton css={"btn-quizPage"} clearInput={clearInput} totalQuestions={totalQuestions} questionNum={question.id+1} text={'Next Question'} />
     </form>
   )
 }
