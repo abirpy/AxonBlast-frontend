@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react'
 import Question from './components/QuizPage/Question'
 import Results from './components/ResultsPage/Results';
 
-import Links from './components/Links';
-import FlashCards from './components/FlashCards';
+import Links from './components/Games/Links';
+import FlashCards from './components/Flashcards/FlashCards';
 import HomeBtns from './components/HomePage/HomeBtns';
 import Header from './components/HomePage/Header';
 import ProgressBtn from './components/ProgressPage/ProgressBtn';
@@ -54,16 +54,6 @@ function App() {
     )
   }
 
-  // const updateScore = (id) => {
-  //   answers.forEach((answer) => {
-  //     console.log(answer.key === answer.input)
-  //     if (answer.id === id && answer.key === answer.input) {
-  //         setScore(score+1)
-  //     }
-  //   })
-  //   console.log(score)
-  // }
-
   const updateScore = () => {
     let newScore = 0
     answers.forEach((answer) => {
@@ -73,6 +63,8 @@ function App() {
       }
     })
     setScore(newScore)
+  }
+
  const flashCards = [
     {
       id: 1,
@@ -130,6 +122,6 @@ function App() {
       </div>
     </Router>
   );
-}}
+}
 
 export default App
