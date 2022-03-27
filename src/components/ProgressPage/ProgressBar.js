@@ -15,9 +15,9 @@ const ProgressBar = ({ scores, avgScore, updateAvgScore, totalQuestions }) => {
     <div>
       <h3 className="results-header normal-header">Progress</h3>
       <div className="progressBar">
-        <h2 className="avg-score">Average Score</h2>
+        <h2 className="avg-score">Average Score: {avgScore.toFixed(2)}/{totalQuestions}</h2>
 
-        <ProgBar style={{height: "30px", fontSize: "25px", borderRadius: "25px"}} animated striped now={percentCorrect} label={`${avgScore.toFixed(2)}/${totalQuestions}`} variant="info" />
+        <ProgBar variant="custom" style={{height: "30px", fontSize: "25px", borderRadius: "25px"}} animated striped now={percentCorrect} />
 
         {scores.map((score, index) => 
           <QuizData score={score} index={index} />

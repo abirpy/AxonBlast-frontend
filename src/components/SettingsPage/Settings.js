@@ -4,7 +4,7 @@ import HomeBtn from '../HomePage/HomeBtn'
 const Settings = () => {
   return (
     <div>
-      <div className="results-header">
+      <div className="results-header normal-header">
         Instructions
       </div>
       <div className="instructions">
