@@ -26,6 +26,12 @@ function App() {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
 
+  const [score, setScore] = useState(-1);
+
+  const [scores, setScores] = useState([]);
+
+  const [quizFinish, setQuizFinish] = useState(false);
+
   const baseURL = "http://localhost:3000/random";
   useEffect(() => {
     axios.get(baseURL)
@@ -52,7 +58,7 @@ function App() {
       .catch(error => {
         return;
       });
-  }, []);
+  }, [quizFinish]);
 
   console.log(questions)
   // const [questions, setQuestions] = useState([
@@ -88,9 +94,6 @@ function App() {
   //   }
   // ])
 
-  const [score, setScore] = useState(-1);
-
-  const [scores, setScores] = useState([]);
 
   const [avgScore, setAvgScore] = useState(0)
 
@@ -196,6 +199,11 @@ function App() {
     setColor("warning")
   }
 
+  const updateQuizFinish = () => {
+    setQuizFinish(!quizFinish)
+  }
+  console.log(quizFinish)
+
   return (
     <Router>
       <div className="container">
@@ -212,7 +220,7 @@ function App() {
             <Route key='question.id' path={`/q${question.id}`} element={<Question totalQuestions={questions.length} question={question} addAnswer={addAnswer} />} />
           ))}
 
-          <Route path='/results' element={<Results answers={answers} updateScore={updateScore} score={score} addScore={addScore} scores={scores} />} />
+          <Route path='/results' element={<Results answers={answers} updateScore={updateScore} score={score} addScore={addScore} scores={scores} updateQuizFinish={updateQuizFinish}/>} />
           <Route path='/games' element={<Links/>}/>
           <Route path='/Flashcards' element={<FlashCards flashcard={flashcard} handleNext={handleNext} changeCardState = {changeCardState} cardText={cardText} color={color} flipCard={flipCard} />}/>
           <Route path='/progress' element={<ProgressBar scores={scores} avgScore={avgScore} updateAvgScore={updateAvgScore} totalQuestions={questions.length} />}/>
