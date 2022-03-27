@@ -2,11 +2,15 @@ import HomeBtn from "../HomePage/HomeBtn"
 import Result from "./Result"
 import { useEffect } from "react"
 
-const Results = ({ answers, updateScore, score }) => {
+const Results = ({ answers, updateScore, score, addScore, scores }) => {
 
   useEffect(() => {
     updateScore()
   }, [])
+
+  useEffect(() => {
+    addScore()
+  }, [score])
 
   return (
     <div className='results-entire'>
@@ -14,11 +18,11 @@ const Results = ({ answers, updateScore, score }) => {
 
       <div className="results-ki">
         {answers.map((answer) => 
-          <Result key={answer.id} answer={answer} updateScore={updateScore} />
+          <Result key={answer.id} answer={answer} />
         )}
       </div>
 
-      <h2 className="score">Score: {score}/{answers.length}</h2>
+      <h2 className="score">Score: {scores[scores.length-1]}/{answers.length}</h2>
 
       <HomeBtn css="btn-home"/>
     </div>

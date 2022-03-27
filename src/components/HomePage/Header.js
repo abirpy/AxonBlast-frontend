@@ -11,24 +11,3 @@ const Header = () => {
 }
 
 export default Header
-
-{/* <Box
-  component="span"
-  m={1}
-  className="spreadBox classes.box"
->
-  <Button 
-    variant="contained" 
-    color="primary" 
-    style={{ height: 40 }}
-  >
-    Primary
-  </Button>
-  <Button 
-    variant="contained" 
-    color="secondary" 
-    style={{ height: 40 }}
-  >
-    Secondary
-  </Button>
-</Box> */}

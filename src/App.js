@@ -17,72 +17,76 @@ function App() {
   //perform get request using axios library to local machine
   const [data, setData] = useState([]);
   
-  const [questions, setQuestions] = useState([]);
-  const [answers, setAnswers] = useState([]);
+  // const [questions, setQuestions] = useState([]);
+  // const [answers, setAnswers] = useState([]);
 
-  const baseURL = "http://localhost:3000/random";
-  useEffect(() => {
-    axios.get(baseURL)
-      .then((response) => {
-        setData(response.data);
+  // const baseURL = "http://localhost:3000/random";
+  // useEffect(() => {
+  //   axios.get(baseURL)
+  //     .then((response) => {
+  //       setData(response.data);
 
-        var ques = []
-        var ans = []
+  //       var ques = []
+  //       var ans = []
 
-        for(let i=1; i<=response.data.length; i++) {
-          ques.push( {
-            'id': i,
-            'text': response.data[i-1][0]
-          } )
-          ans.push( {
-            'id': i,
-            'key': response.data[i-1][1],
-            'input': ""
-          } )
-        }
-        setQuestions(ques);
-        setAnswers(ans);
-      })
-      .catch(error => {
-        return;
-      });
-  }, []);
+  //       for(let i=1; i<=response.data.length; i++) {
+  //         ques.push( {
+  //           'id': i,
+  //           'text': response.data[i-1][0]
+  //         } )
+  //         ans.push( {
+  //           'id': i,
+  //           'key': response.data[i-1][1],
+  //           'input': ""
+  //         } )
+  //       }
+  //       setQuestions(ques);
+  //       setAnswers(ans);
+  //     })
+  //     .catch(error => {
+  //       return;
+  //     });
+  // }, []);
 
-  console.log(questions)
-  // const [questions, setQuestions] = useState([
-  //   {
-  //     "id": 1,
-  //     "text": "Who was the first president of the United States?"
-  //   },
-  //   {
-  //     "id": 2,
-  //     "text": "How many syllables are in the word \"it\"?"
-  //   },
-  //   {
-  //     "id": 3,
-  //     "text": "What is the name for the American Unit of currency?"
-  //   }
-  // ])
+  // console.log(questions)
+  const [questions, setQuestions] = useState([
+    {
+      "id": 1,
+      "text": "Who was the first president of the United States?"
+    },
+    {
+      "id": 2,
+      "text": "How many syllables are in the word \"it\"?"
+    },
+    {
+      "id": 3,
+      "text": "What is the name for the American Unit of currency?"
+    }
+  ])
 
-  // const [answers, setAnswers] = useState([
-  //   {
-  //     "id": 1,
-  //     "key": "George Washington",
-  //     "input": ""
-  //   },
-  //   {
-  //     "id": 2,
-  //     "key": "1",
-  //     "input": ""
-  //   },
-  //   {
-  //     "id": 3,
-  //     "key": "dollar",
-  //     "input": ""
-  //   }
-  // ])
+  const [answers, setAnswers] = useState([
+    {
+      "id": 1,
+      "key": "George Washington",
+      "input": ""
+    },
+    {
+      "id": 2,
+      "key": "1",
+      "input": ""
+    },
+    {
+      "id": 3,
+      "key": "dollar",
+      "input": ""
+    }
+  ])
 
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(-1);
+
+  const [scores, setScores] = useState([]);
+
+  const [avgScore, setAvgScore] = useState(0)
 
   const addAnswer = (id, ans) => {
     setAnswers(
@@ -100,6 +104,32 @@ function App() {
       }
     })
     setScore(newScore)
+    // console.log(scores)
+    // setScores([...scores, newScore])
+    // console.log(scores)
+
+    // let scoreSum = 0
+    // scores.forEach((score) => {
+    //   scoreSum += score
+    // })
+
+    // setAvgScore(scoreSum / scores.length)
+  }
+
+  const addScore = () => {
+    if (score !== -1) {
+      setScores([...scores, score])
+      setScore(-1)
+    }
+  }
+
+  const updateAvgScore = () => {
+    let scoreSum = 0
+    scores.forEach((score) => {
+      scoreSum += score
+    })
+    let newAvgScore = scoreSum / (scores.length)
+    setAvgScore(newAvgScore)
   }
 
  const flashCards = [
@@ -150,13 +180,12 @@ function App() {
             <Route key='question.id' path={`/q${question.id}`} element={<Question totalQuestions={questions.length} question={question} addAnswer={addAnswer} />} />
           ))}
 
-          <Route path='/results' element={<Results answers={answers} updateScore={updateScore} score={score} />} />
+          <Route path='/results' element={<Results answers={answers} updateScore={updateScore} score={score} addScore={addScore} scores={scores} />} />
           <Route path='/games' element={<Links/>}/>
           <Route path='/Flashcards' element={<FlashCards text = {flashcard.text} handleChange={handleChange}/>}/>
-          <Route path='/progress' element={<ProgressBar score={score} totalQuestions={questions.length} />}/>
+          <Route path='/progress' element={<ProgressBar scores={scores} avgScore={avgScore} updateAvgScore={updateAvgScore} totalQuestions={questions.length} />}/>
           <Route path='/settings' element={<Settings />}/>
           <Route path='/profile' element={<Profile />}/>
-
 
         </Routes>
       </div>
