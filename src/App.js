@@ -12,6 +12,12 @@ import ProgressBar from './components/ProgressPage/ProgressBar';
 import Settings from './components/SettingsPage/Settings';
 import Profile from './components/ProfilePage/Profile';
 
+import Jollie from './components/Pictures/AngelinaJollie.jpg';
+import Brad from './components/Pictures/BradPitt.jpeg';
+import Emilia from './components/Pictures/EmiliaClarke.jpeg';
+import Emma from './components/Pictures/EmmaWatson.jpg';
+import Keanu from './components/Pictures/KeanuReaves.webp';
+
 function App() {
 
   //perform get request using axios library to local machine
@@ -125,26 +131,42 @@ function App() {
  const flashCards = [
     {
       id: 1,
-      text: "My Son's name is Jason"
+      text: Jollie,
+      ans: "Angelina Jollie"
     },
+
     {
       id : 2,
-      text: "Joe Biden is the current president of America"
+      text: Brad,
+      ans: "Brad Pitt"
     },
     {
       id: 3,
-      text: "I am from Los Angeles"
+      text: Emilia,
+      ans: "Emilia Clarke"
+    },
+    {
+      id: 4,
+      text: Keanu,
+      ans: "Keanu Reaves"
+    },
+    {
+      id: 5,
+      text: Emma,
+      ans: "Emma Watson"
     }
   ]
 
   const [flashcard, setFlashcard] = useState(
       {
         id: 1,
-        text: 'One'
+        text: Brad,
+        ans: "Brad Pitt"
       }
   )
 
-  const handleChange = (id) => {
+  const handleNext = (id) => {
+    console.log(id)
     let newFlashCard;
     flashCards.forEach((f) => {
       if(f.id === id){
@@ -152,6 +174,21 @@ function App() {
       }
     });
     setFlashcard(newFlashCard);
+    setColor("warning")
+    setCardText(flashcard.text)
+  }
+
+  const [color, setColor] = useState("warning")
+  const [cardText, setCardText] = useState(flashcard.text)
+
+  const flipCard = () => {
+    if (cardText === flashcard.text) {
+      setCardText(flashcard.ans)
+      setColor("danger")
+    } else {
+      setCardText(flashcard.text)
+      setColor("warning")
+    }
   }
 
   return (
@@ -172,7 +209,7 @@ function App() {
 
           <Route path='/results' element={<Results answers={answers} updateScore={updateScore} score={score} addScore={addScore} scores={scores} />} />
           <Route path='/games' element={<Links/>}/>
-          <Route path='/Flashcards' element={<FlashCards text = {flashcard.text} handleChange={handleChange}/>}/>
+          <Route path='/Flashcards' element={<FlashCards flashcard={flashcard} handleNext={handleNext} cardText={cardText} color={color} flipCard={flipCard} />}/>
           <Route path='/progress' element={<ProgressBar scores={scores} avgScore={avgScore} updateAvgScore={updateAvgScore} totalQuestions={questions.length} />}/>
           <Route path='/settings' element={<Settings />}/>
           <Route path='/profile' element={<Profile />}/>
