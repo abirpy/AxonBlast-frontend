@@ -6,7 +6,7 @@ const SettingsBtn = ({ css }) => {
     <div>
       <Link to='/settings'>
         <button className={`btn ${css}`}>
-          <img src={settingsIcon} alt="Settings Icon" width="28px" height="28px" />
+          <img src={settingsIcon} alt="Settings Icon" width="19px" height="28px" />
         </button>
       </Link>
     </div>

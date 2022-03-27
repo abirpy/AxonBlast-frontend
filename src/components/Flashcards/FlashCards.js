@@ -16,7 +16,7 @@ const FlashCards = ({text, handleChange}) => {
             <Card.Text>
               {text}
             </Card.Text>
-            <Button variant="warning" onClick={() => handleChange(Math.floor(Math.random() * 3) + 1)}>NEXT</Button>
+            <button className="btn" onClick={() => handleChange(Math.floor(Math.random() * 3) + 1)}>NEXT</button>
           </Card.Body>
         </Card>
       </div>

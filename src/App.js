@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import axios from 'axios';
+
 import Question from './components/QuizPage/Question'
 import Results from './components/ResultsPage/Results';
-
 import Links from './components/Games/Links';
 import FlashCards from './components/Flashcards/FlashCards';
 import HomeBtns from './components/HomePage/HomeBtns';
@@ -12,6 +13,42 @@ import Settings from './components/SettingsPage/Settings';
 import Profile from './components/ProfilePage/Profile';
 
 function App() {
+
+  //perform get request using axios library to local machine
+  const [data, setData] = useState([]);
+  
+  // const [questions, setQuestions] = useState([]);
+  // const [answers, setAnswers] = useState([]);
+
+  // const baseURL = "http://localhost:3000/random";
+  // useEffect(() => {
+  //   axios.get(baseURL)
+  //     .then((response) => {
+  //       setData(response.data);
+
+  //       var ques = []
+  //       var ans = []
+
+  //       for(let i=1; i<=response.data.length; i++) {
+  //         ques.push( {
+  //           'id': i,
+  //           'text': response.data[i-1][0]
+  //         } )
+  //         ans.push( {
+  //           'id': i,
+  //           'key': response.data[i-1][1],
+  //           'input': ""
+  //         } )
+  //       }
+  //       setQuestions(ques);
+  //       setAnswers(ans);
+  //     })
+  //     .catch(error => {
+  //       return;
+  //     });
+  // }, []);
+
+  // console.log(questions)
   const [questions, setQuestions] = useState([
     {
       "id": 1,
@@ -45,7 +82,11 @@ function App() {
     }
   ])
 
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(-1);
+
+  const [scores, setScores] = useState([]);
+
+  const [avgScore, setAvgScore] = useState(0)
 
   const addAnswer = (id, ans) => {
     setAnswers(
@@ -58,12 +99,37 @@ function App() {
   const updateScore = () => {
     let newScore = 0
     answers.forEach((answer) => {
-      console.log(answer.key === answer.input)
       if (answer.key === answer.input) {
           newScore++
       }
     })
     setScore(newScore)
+    // console.log(scores)
+    // setScores([...scores, newScore])
+    // console.log(scores)
+
+    // let scoreSum = 0
+    // scores.forEach((score) => {
+    //   scoreSum += score
+    // })
+
+    // setAvgScore(scoreSum / scores.length)
+  }
+
+  const addScore = () => {
+    if (score !== -1) {
+      setScores([...scores, score])
+      setScore(-1)
+    }
+  }
+
+  const updateAvgScore = () => {
+    let scoreSum = 0
+    scores.forEach((score) => {
+      scoreSum += score
+    })
+    let newAvgScore = scoreSum / (scores.length)
+    setAvgScore(newAvgScore)
   }
 
  const flashCards = [
@@ -114,13 +180,12 @@ function App() {
             <Route key='question.id' path={`/q${question.id}`} element={<Question totalQuestions={questions.length} question={question} addAnswer={addAnswer} />} />
           ))}
 
-          <Route path='/results' element={<Results answers={answers} updateScore={updateScore} score={score} />} />
+          <Route path='/results' element={<Results answers={answers} updateScore={updateScore} score={score} addScore={addScore} scores={scores} />} />
           <Route path='/games' element={<Links/>}/>
           <Route path='/Flashcards' element={<FlashCards text = {flashcard.text} handleChange={handleChange}/>}/>
-          <Route path='/progress' element={<ProgressBar />}/>
+          <Route path='/progress' element={<ProgressBar scores={scores} avgScore={avgScore} updateAvgScore={updateAvgScore} totalQuestions={questions.length} />}/>
           <Route path='/settings' element={<Settings />}/>
           <Route path='/profile' element={<Profile />}/>
-
 
         </Routes>
       </div>
