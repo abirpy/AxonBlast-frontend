@@ -43,7 +43,7 @@ img.rounded-corners {
 .btn-r {
   background: #5865f2;
   color: white;
-  float: right;
+  text-align: right;
 }
 
 .btn:hover {

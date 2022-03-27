@@ -159,6 +159,9 @@ function App() {
       }
   )
 
+  const [color, setColor] = useState("warning")
+  const [cardText, setCardText] = useState(flashcard.text)
+
   const handleNext = (id) => {
     console.log(id)
     let newFlashCard;
@@ -172,17 +175,19 @@ function App() {
     setCardText(flashcard.text)
   }
 
-  const [color, setColor] = useState("warning")
-  const [cardText, setCardText] = useState(flashcard.text)
-
   const flipCard = () => {
-    if (cardText === flashcard.text) {
+    if (cardText !== flashcard.ans) {
       setCardText(flashcard.ans)
       setColor("danger")
     } else {
       setCardText(flashcard.text)
       setColor("warning")
     }
+  }
+
+  const changeCardState = () => {
+    setCardText(flashcard.text)
+    setColor("warning")
   }
 
   return (
@@ -203,7 +208,7 @@ function App() {
 
           <Route path='/results' element={<Results answers={answers} updateScore={updateScore} score={score} addScore={addScore} scores={scores} />} />
           <Route path='/games' element={<Links/>}/>
-          <Route path='/Flashcards' element={<FlashCards flashcard={flashcard} handleNext={handleNext} cardText={cardText} color={color} flipCard={flipCard} />}/>
+          <Route path='/Flashcards' element={<FlashCards flashcard={flashcard} handleNext={handleNext} changeCardState = {changeCardState} cardText={cardText} color={color} flipCard={flipCard} />}/>
           <Route path='/progress' element={<ProgressBar scores={scores} avgScore={avgScore} updateAvgScore={updateAvgScore} totalQuestions={questions.length} />}/>
           <Route path='/settings' element={<Settings />}/>
           <Route path='/profile' element={<Profile />}/>
