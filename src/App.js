@@ -212,7 +212,7 @@ function App() {
           <Route path='/' exact element={
             <>
               <Header />
-              <HomeBtns totalQuestions={questions.length} />
+              <HomeBtns updateQuizFinish={updateQuizFinish} totalQuestions={questions.length} />
             </>
           } />
 
@@ -220,7 +220,7 @@ function App() {
             <Route key='question.id' path={`/q${question.id}`} element={<Question totalQuestions={questions.length} question={question} addAnswer={addAnswer} />} />
           ))}
 
-          <Route path='/results' element={<Results answers={answers} updateScore={updateScore} score={score} addScore={addScore} scores={scores} updateQuizFinish={updateQuizFinish}/>} />
+          <Route path='/results' element={<Results answers={answers} updateScore={updateScore} score={score} addScore={addScore} scores={scores} />} />
           <Route path='/games' element={<Links/>}/>
           <Route path='/Flashcards' element={<FlashCards flashcard={flashcard} handleNext={handleNext} changeCardState = {changeCardState} cardText={cardText} color={color} flipCard={flipCard} />}/>
           <Route path='/progress' element={<ProgressBar scores={scores} avgScore={avgScore} updateAvgScore={updateAvgScore} totalQuestions={questions.length} />}/>

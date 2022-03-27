@@ -20,7 +20,7 @@ const ProgressBar = ({ scores, avgScore, updateAvgScore, totalQuestions }) => {
         <ProgBar variant="custom" style={{height: "30px", fontSize: "25px", borderRadius: "25px"}} animated striped now={percentCorrect} />
 
         {scores.map((score, index) => 
-          <QuizData score={score} index={index} />
+          <QuizData key={index} score={score} index={index} />
         )}
 
       </div>

@@ -2,7 +2,7 @@ import HomeBtn from "../HomePage/HomeBtn"
 import Result from "./Result"
 import { useEffect } from "react"
 
-const Results = ({ answers, updateScore, score, addScore, scores, updateQuizFinish }) => {
+const Results = ({ answers, updateScore, score, addScore, scores }) => {
 
   useEffect(() => {
     updateScore()
@@ -24,7 +24,7 @@ const Results = ({ answers, updateScore, score, addScore, scores, updateQuizFini
 
       <h2 className="score">Score: {scores[scores.length-1]}/{answers.length}</h2>
 
-      <HomeBtn onCLick={updateQuizFinish} updateQuizFinish={updateQuizFinish} css="btn-home"/>
+      <HomeBtn css="btn-home"/>
       
     </div>
   )

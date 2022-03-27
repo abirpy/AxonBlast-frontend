@@ -5,7 +5,7 @@ import FlashCardsBtn from "../Flashcards/FlashCardsBtn"
 import SettingsBtn from "../SettingsPage/SettingsBtn"
 import ProfileBtn from "../ProfilePage/ProfileBtn"
 
-const HomeBtns = ({ totalQuestions }) => {
+const HomeBtns = ({ updateQuizFinish, totalQuestions }) => {
   return (
     <div className="btns-homePage">
       <div className="inline">
@@ -13,7 +13,7 @@ const HomeBtns = ({ totalQuestions }) => {
         <ProfileBtn css={"btn-profile"} />
       </div>
       <div className="inline">
-        <QuizButton css={"btn-homePage btn-homePage-quiz"} totalQuestions={totalQuestions} questionNum={1} text={"Take Quiz"} />
+        <QuizButton updateQuizFinish={updateQuizFinish} css={"btn-homePage btn-homePage-quiz"} totalQuestions={totalQuestions} questionNum={1} text={"Take Quiz"} />
         <GamesBtn css={"btn-homePage btn-homePage-games"} text={"Games"}/>
       </div>
       <div className="inline">
