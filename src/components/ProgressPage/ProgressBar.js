@@ -15,7 +15,7 @@ const ProgressBar = ({ scores, avgScore, updateAvgScore, totalQuestions }) => {
     <div>
       <h3 className="results-header normal-header">Progress</h3>
       <div className="progressBar">
-        <h2 className="avg-score">Average Score: {avgScore.toFixed(2)}/{totalQuestions}</h2>
+        <h2 className="avg-score">Average Score: {scores.length > 0 ? avgScore.toFixed(2) : 0}/{totalQuestions}</h2>
 
         <ProgBar variant="custom" style={{height: "30px", fontSize: "25px", borderRadius: "25px"}} animated striped now={percentCorrect} />
 
