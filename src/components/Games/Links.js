@@ -6,8 +6,8 @@ import HomeBtn from '../HomePage/HomeBtn'
 const Links = () => {
   return (
     <div>
-      <h3 className="results-header normal-header">Game Links</h3>
-      <ListGroup className="center">
+      <h3 className="results-header normal-header">Activity List</h3>
+      {/* <ListGroup className="center">
         <ListGroup.Item variant="dark">
           <a rel="noreferrer" target='_blank' href={"https://stayingsharp.aarp.org/about/brain-health/games-play/?CMP=RDRCT-MEM-SSS-030521iii"}>Staying Sharp</a>
         </ListGroup.Item>
@@ -26,7 +26,21 @@ const Links = () => {
         <ListGroup.Item variant="secondary">
           <a rel="noreferrer" target='_blank' href={"http://www.wixot.com/wordsearch"}>Word Search Colorful</a>
         </ListGroup.Item>
-      </ListGroup>
+      </ListGroup> */}
+      <div className="instructions">
+        ➡ Since gardening is one of your hobbies, you might want to play the game Flower Garden
+        <br></br>
+        <br></br>
+        ➡ Since you like problem-solving you can play the game Luminosity consists of games designed to exercise memory, speed, flexibility and problem-solving.
+        <br></br>
+        <br></br>
+        ➡ Since you are very close to a 7-day streak, do oe more quiz today to fulfill your weekly goals
+        <br></br>
+        <br></br>
+        ➡ You haven't done flashcards for a while. Challenge yourself by matching some names and faces.
+        <br></br>
+        <br></br>
+      </div>
       <HomeBtn css="btn-home"/>
     </div>
   )

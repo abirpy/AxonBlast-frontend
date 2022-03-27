@@ -10,7 +10,7 @@ const Profile = () => {
         <div style={{color: "white", textAlign: "left", lineHeight: "13px", marginTop: "18px"}}>
           <p>Age: 76</p>
           <p>Occupation: Stock Photo Model</p>
-          <p>Hobbies: Travelling, cooking, and gardening</p>
+          <p>Hobbies: Hiking, Solving Puzzles, gardening</p>
         </div>
         <button className="btn" style={{marginTop: "6px"}}>Update Profile</button>
       </div>

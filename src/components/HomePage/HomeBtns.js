@@ -14,7 +14,7 @@ const HomeBtns = ({ updateQuizFinish, totalQuestions }) => {
       </div>
       <div className="inline">
         <QuizButton updateQuizFinish={updateQuizFinish} css={"btn-homePage btn-homePage-quiz"} totalQuestions={totalQuestions} questionNum={1} text={"Take Quiz"} />
-        <GamesBtn css={"btn-homePage btn-homePage-games"} text={"Games"}/>
+        <GamesBtn css={"btn-homePage btn-homePage-games"} text={"Activities"}/>
       </div>
       <div className="inline">
         <FlashCardsBtn css={"btn-homePage btn-homePage-flashcards"} text={"Flash Cards"}/>
