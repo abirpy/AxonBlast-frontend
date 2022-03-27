@@ -9,7 +9,7 @@ const FlashCards = ({text, handleChange}) => {
       <div className="center">
         <Card
           style={{ width: '18rem' }}
-          className="mb-2 p-3 mb-2 bg-secondary text-white"
+          className="mb-2 p-3 mb-2 bg-warning text-white"
         >
           <Card.Header>FlashCard</Card.Header>
           <Card.Body>
