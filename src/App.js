@@ -12,6 +12,12 @@ import ProgressBar from './components/ProgressPage/ProgressBar';
 import Settings from './components/SettingsPage/Settings';
 import Profile from './components/ProfilePage/Profile';
 
+import Jollie from './components/Pictures/AngelinaJollie.jpg';
+import Brad from './components/Pictures/BradPitt.jpeg';
+import Emilia from './components/Pictures/EmiliaClarke.jpeg';
+import Emma from './components/Pictures/EmmaWatson.jpg';
+import Keanu from './components/Pictures/KeanuReaves.webp';
+
 function App() {
 
   //perform get request using axios library to local machine
@@ -135,27 +141,37 @@ function App() {
  const flashCards = [
     {
       id: 1,
-      text: "My Son's name is ...",
-      ans: "Abir"
+      text: Jollie,
+      ans: "Angelina Jollie"
     },
 
     {
       id : 2,
-      text: "... is the current president of America",
-      ans: "Joe Biden"
+      text: Brad,
+      ans: "Brad Pitt"
     },
     {
       id: 3,
-      text: "I am from ...",
-      ans: "Los Angeles"
+      text: Emilia,
+      ans: "Emilia Clarke"
+    },
+    {
+      id: 4,
+      text: Keanu,
+      ans: "Keanu Reaves"
+    },
+    {
+      id: 5,
+      text: Emma,
+      ans: "Emma Watson"
     }
   ]
 
   const [flashcard, setFlashcard] = useState(
       {
         id: 1,
-        text: "My Son's name is ...",
-        ans: "Abir"
+        text: Brad,
+        ans: "Brad Pitt"
       }
   )
 
