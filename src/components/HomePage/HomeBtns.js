@@ -2,10 +2,16 @@ import QuizButton from "../QuizPage/QuizButton"
 import ProgressBtn from "../ProgressPage/ProgressBtn"
 import GamesBtn from "../Games/GamesBtn"
 import FlashCardsBtn from "../Flashcards/FlashCardsBtn"
+import SettingsBtn from "../SettingsPage/SettingsBtn"
+import ProfileBtn from "../ProfilePage/ProfileBtn"
 
 const HomeBtns = ({ totalQuestions }) => {
   return (
     <div>
+      <div className="inline">
+        <SettingsBtn css={"btn-settings"} />
+        <ProfileBtn css={"btn-profile"} />
+      </div>
       <div className="inline">
         <QuizButton css={"btn-homePage btn-homePage-quiz"} totalQuestions={totalQuestions} questionNum={1} text={"Take Quiz"} />
         <GamesBtn css={"btn-homePage btn-homePage-games"} text={"Games"}/>

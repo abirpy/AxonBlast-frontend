@@ -6,7 +6,7 @@ const HomeBtn = ({ css }) => {
     <div>
       <Link to='/'>
         <button className={`btn ${css}`}>
-        <img src={homeIcon} alt="Home Icon" width="25px" height="25px" />
+          <img src={homeIcon} alt="Home Icon" width="25px" height="25px" />
         </button>
       </Link>
     </div>
