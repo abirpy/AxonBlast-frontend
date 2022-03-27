@@ -262,7 +262,7 @@ img.rounded-corners {
 .center {
   position: absolute;
   margin: 0;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #2e3856;
