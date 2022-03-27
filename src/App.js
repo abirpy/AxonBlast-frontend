@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Question from './components/QuizPage/Question'
 import Results from './components/ResultsPage/Results';
-
 import Links from './components/Games/Links';
 import FlashCards from './components/Flashcards/FlashCards';
 import HomeBtns from './components/HomePage/HomeBtns';
@@ -58,7 +57,6 @@ function App() {
   const updateScore = () => {
     let newScore = 0
     answers.forEach((answer) => {
-      console.log(answer.key === answer.input)
       if (answer.key === answer.input) {
           newScore++
       }
@@ -117,7 +115,7 @@ function App() {
           <Route path='/results' element={<Results answers={answers} updateScore={updateScore} score={score} />} />
           <Route path='/games' element={<Links/>}/>
           <Route path='/Flashcards' element={<FlashCards text = {flashcard.text} handleChange={handleChange}/>}/>
-          <Route path='/progress' element={<ProgressBar />}/>
+          <Route path='/progress' element={<ProgressBar score={score} totalQuestions={questions.length} />}/>
           <Route path='/settings' element={<Settings />}/>
           <Route path='/profile' element={<Profile />}/>
 

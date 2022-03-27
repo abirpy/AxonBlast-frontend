@@ -7,7 +7,7 @@ import ProfileBtn from "../ProfilePage/ProfileBtn"
 
 const HomeBtns = ({ totalQuestions }) => {
   return (
-    <div>
+    <div className="btns-homePage">
       <div className="inline">
         <SettingsBtn css={"btn-settings"} />
         <ProfileBtn css={"btn-profile"} />

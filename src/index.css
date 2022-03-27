@@ -31,7 +31,7 @@ img.rounded-corners {
 
 .header {
   position: relative;
-  top: 100px;
+  top: 80px;
   text-align: center;
 }
 
@@ -58,7 +58,7 @@ img.rounded-corners {
 .btn-settings {
   display: inline-block;
   border: none;
-  padding: 10px 11px;
+  padding: 10px 15px;
   margin: 5px;
   border-radius: 25px;
   cursor: pointer;
@@ -66,7 +66,7 @@ img.rounded-corners {
   position: fixed;
   left: 50%;
   top: 71px;
-  transform: translate(-390%, -50%);
+  transform: translate(-395%, -50%);
   margin: 0 auto;
 }
 
@@ -83,6 +83,11 @@ img.rounded-corners {
   top: 71px;
   transform: translate(300%, -50%);
   margin: 0 auto;
+}
+
+.btns-homePage {
+  position: relative;
+  top: -10px;
 }
 
 .btn-homePage-quiz {
@@ -200,6 +205,7 @@ img.rounded-corners {
   margin-right: 70px;
   margin-bottom: 30px;
   border-radius: 10px;
+  color: white;
 }
 
 .results-k {
@@ -279,3 +285,33 @@ img.rounded-corners {
   justify-content: "space-around";
   align-items: "center";
 } */
+
+.normal-header {
+  position: relative;
+  top: 30px;
+}
+
+a {
+  color: black;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+.progressBar {
+  position: relative;
+  top: 50px;
+}
