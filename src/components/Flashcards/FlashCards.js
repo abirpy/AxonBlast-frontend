@@ -10,11 +10,7 @@ const FlashCards = ({flashcard, handleNext, cardText, color, flipCard}) => {
       <div className="center">
         <Card
           style={{ width: '18rem' }}
-<<<<<<< HEAD
-          className="mb-2 p-3 mb-2 bg-warning text-white"
-=======
           className={`mb-2 p-3 mb-2 bg-${color} text-white`}
->>>>>>> 39e2b00f2ecfbd5b2937c052fa5de9a42ee0b060
         >
           <Card.Header>FlashCard</Card.Header>
           <Card.Body>
